@@ -14,7 +14,15 @@ const list = (req, res) => {
     res.json({ data: orders });
 };
 
+const create = (req, res) => {
+    const { data: { deliverTo, mobileNumber, status, dishes } = {} } = req.body;
+    const newOrder = { id: nextId(), deliverTo, mobileNumber, status, dishes };
+    orders.push(newOrder);
+    res.status(201).json({ data: newOrder });
+};
+
 
 module.exports = {
     list,
+    create: [validateOrder(), create],
 };
