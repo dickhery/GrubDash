@@ -25,9 +25,26 @@ const read = (req, res) => {
     res.json({ data: res.locals.order });
 };
 
+const update = (req, res, next) => {
+    const order = res.locals.order;
+    const { data: { id, deliverTo, mobileNumber, status, dishes } = {} } = req.body;
+
+    if (id &&id !== order.id) {
+        return next({ status: 400, message: `Order does not match route id. Order: ${id}, Route: ${order.id}` });
+    }
+
+    order.deliverTo = deliverTo;
+    order.mobileNumber = mobileNumber;
+    order.status = status;
+    order.dishes = dishes;
+
+    res.json({ data: order });
+};
+
 
 module.exports = {
     list,
     create: [validateOrder(), create],
     read: [orderExists, read],
+    update: [orderExists, validateOrder(true), update],
 };
