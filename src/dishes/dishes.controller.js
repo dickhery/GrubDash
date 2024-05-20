@@ -21,7 +21,12 @@ const create = (req, res) => {
     res.status(201).json({ data: newDish });
 };
 
+const read = (req, res) => {
+    res.json({ data: res.locals.dish });
+};
+
 module.exports = {
     list,
     create: [validateDish, create],
+    read: [dishExists, read],
 };
