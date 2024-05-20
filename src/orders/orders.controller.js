@@ -41,10 +41,19 @@ const update = (req, res, next) => {
     res.json({ data: order });
 };
 
+const deleteOrder = (req, res, next) => {
+    if (res.locals.order.status !== "pending") {
+        return next({ status: 400, message: "An order cannot be deleted unless it is pending" });
+    }
+    const index = orders.findIndex(order => order.id === res.locals.order.id);
+    orders.splice(index, 1);
+    res.sendStatus(204);
+};
 
 module.exports = {
     list,
     create: [validateOrder(), create],
     read: [orderExists, read],
     update: [orderExists, validateOrder(true), update],
+    delete: [orderExists, deleteOrder],
 };
