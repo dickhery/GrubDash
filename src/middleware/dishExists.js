@@ -8,7 +8,7 @@ const dishExists = (req, res, next) => {
         res.locals.dish = foundDish;
         return next();
     }
-    next({ status: 400, message: `Dish id not found: ${dishId}` });
+    next({ status: 404, message: `Dish id not found: ${dishId}` });
 };
 
 module.exports = dishExists;
