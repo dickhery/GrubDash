@@ -21,8 +21,13 @@ const create = (req, res) => {
     res.status(201).json({ data: newOrder });
 };
 
+const read = (req, res) => {
+    res.json({ data: res.locals.order });
+};
+
 
 module.exports = {
     list,
     create: [validateOrder(), create],
+    read: [orderExists, read],
 };
