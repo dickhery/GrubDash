@@ -10,22 +10,22 @@ const nextId = require("../utils/nextId");
 const validateDish = require("../middleware/validateDish");
 const dishExists = require("../middleware/dishExists");
 
-const list = (req, res) => {
+function list(req, res) {
     res.json({ data: dishes });
 };
 
-const create = (req, res) => {
+function create(req, res) {
     const { data: { name, description, price, image_url } = {} } = req.body;
     const newDish = { id: nextId(), name, description, price, image_url };
     dishes.push(newDish);
     res.status(201).json({ data: newDish });
 };
 
-const read = (req, res) => {
+function read(req, res) {
     res.json({ data: res.locals.dish });
 };
 
-const update = (req, res, next) => {
+function update(req, res, next) {
     const dish = res.locals.dish;
     const { data: { id, name, description, price, image_url } = {} } = req.body;
 

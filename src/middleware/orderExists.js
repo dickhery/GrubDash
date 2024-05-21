@@ -1,6 +1,6 @@
 const orders = require("../data/orders-data");
 
-const orderExists = (req, res, next) => {
+function orderExists(req, res, next) {
     const { orderId } = req.params;
     const foundOrder = orders.find(order => order.id === orderId);
 

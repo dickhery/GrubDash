@@ -1,4 +1,4 @@
-const validateOrder = (requireStatus = false) => {
+function validateOrder(requireStatus = false) {
     return (req, res, next) => {
         const { data: { deliverTo, mobileNumber, status, dishes } = {} } = req.body;
 

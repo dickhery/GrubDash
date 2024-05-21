@@ -1,4 +1,4 @@
-const validateDish = (req, res, next) => {
+function validateDish(req, res, next) {
     const { data: { name, description, price, image_url } = {} } = req.body;
 
     if (!name) return next({ status: 400, message: "Dish must include a name" });

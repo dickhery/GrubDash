@@ -1,6 +1,6 @@
 const dishes = require("../data/dishes-data");
 
-const dishExists = (req, res, next) => {
+function dishExists(req, res, next) {
     const { dishId } = req.params;
     const foundDish = dishes.find(dish => dish.id === dishId);
 
