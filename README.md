@@ -235,7 +235,43 @@ To start the server, run the following command:
     ```json
     {
       "data": {
-        "deliverTo": "1600 Pennsylvania
+        "deliverTo": "1600 Pennsylvania Avenue NW, Washington, DC",
+        "mobileNumber": "(202) 456-1111",
+        "status": "pending",
+        "dishes": [
+          {
+            "id": "d351db2b49b69679504652ea1cf38241",
+            "name": "Dolcelatte and chickpea spaghetti",
+            "description": "Spaghetti topped with a blend of dolcelatte and fresh chickpeas",
+            "image_url": "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?h=530&w=350",
+            "price": 19,
+            "quantity": 2
+          }
+        ]
+      }
+    }
+    ```
+  - Example response:
+    ```json
+    {
+        "data": {
+            "id": "5a887d326e83d3c5bdcbee398ea32aff",
+            "deliverTo": "1600 Pennsylvania Avenue NW, Washington, DC",
+            "mobileNumber": "(202) 456-1111",
+            "status": "pending",
+            "dishes": [
+              {
+                "id": "d351db2b49b69679504652ea1cf38241",
+                "name": "Dolcelatte and chickpea spaghetti",
+                "description": "Spaghetti topped with a blend of dolcelatte and fresh chickpeas",
+                "image_url": "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?h=530&w=350",
+                "price": 19,
+                "quantity": 2
+              }
+            ]
+        }
+    }
+    ```
 
 - **DELETE /orders/:orderId**
   - Deletes a specific order by ID.
