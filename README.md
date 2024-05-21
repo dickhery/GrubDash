@@ -27,11 +27,8 @@ GrubDash is a backend API for a food delivery service. This project allows front
     ```sh
     npm install
 
-3. **Initialize a Git repository:**
-    ```sh
-    git init
 
-4. **Run the tests:**
+3. **Run the tests:**
     ```sh
     npm test
 
