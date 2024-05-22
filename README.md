@@ -20,7 +20,7 @@ GrubDash is a backend API for a food delivery service. This project allows front
 ## Project Setup
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-username/GrubDash.git
+   git clone https://github.com/dickhery/GrubDash.git
    cd GrubDash
 
 2. **Install Dependencies:**
